@@ -31,17 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExistingManagedIdentityForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblPluginName = new System.Windows.Forms.Label();
             this.Show = new System.Windows.Forms.Label();
             this.chkUnmanaged = new System.Windows.Forms.CheckBox();
             this.chkManaged = new System.Windows.Forms.CheckBox();
-            this.cdsGridManagedIdentity = new xrmtb.XrmToolBox.Controls.CRMGridView();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.txtDisplayName = new System.Windows.Forms.TextBox();
-            this.cboType = new System.Windows.Forms.ComboBox();
-            this.lblPluginName = new System.Windows.Forms.Label();
             this.imageManagedIdentity = new Driv.XTB.PluginIdentityManager.ImageGroupBox();
             this.cdsTxtIdentitySubjectScope = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtIdentityCredentialSource = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -53,13 +46,22 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cdsTxtIdentityName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.cdsGridManagedIdentity = new xrmtb.XrmToolBox.Controls.CRMGridView();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.txtDisplayName = new System.Windows.Forms.TextBox();
+            this.cboType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cdsGridManagedIdentity)).BeginInit();
             this.imageManagedIdentity.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cdsGridManagedIdentity)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lblPluginName);
             this.panel2.Controls.Add(this.Show);
             this.panel2.Controls.Add(this.chkUnmanaged);
@@ -74,6 +76,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(949, 455);
             this.panel2.TabIndex = 5;
+            // 
+            // lblPluginName
+            // 
+            this.lblPluginName.AutoSize = true;
+            this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPluginName.Location = new System.Drawing.Point(679, 306);
+            this.lblPluginName.Name = "lblPluginName";
+            this.lblPluginName.Size = new System.Drawing.Size(120, 13);
+            this.lblPluginName.TabIndex = 120;
+            this.lblPluginName.Text = "Assembly : Plugin Name";
             // 
             // Show
             // 
@@ -110,98 +122,6 @@
             this.chkManaged.Text = "Managed";
             this.chkManaged.UseVisualStyleBackColor = true;
             this.chkManaged.CheckedChanged += new System.EventHandler(this.chkManaged_CheckedChanged);
-            // 
-            // cdsGridManagedIdentity
-            // 
-            this.cdsGridManagedIdentity.AllowUserToOrderColumns = true;
-            this.cdsGridManagedIdentity.AllowUserToResizeRows = false;
-            this.cdsGridManagedIdentity.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.cdsGridManagedIdentity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cdsGridManagedIdentity.ColumnOrder = "name, applicationid, tenantid, credentialsource, subjectscope";
-            this.cdsGridManagedIdentity.FilterColumns = "";
-            this.cdsGridManagedIdentity.Location = new System.Drawing.Point(23, 97);
-            this.cdsGridManagedIdentity.Name = "cdsGridManagedIdentity";
-            this.cdsGridManagedIdentity.OrganizationService = null;
-            this.cdsGridManagedIdentity.ShowFriendlyNames = true;
-            this.cdsGridManagedIdentity.ShowIdColumn = false;
-            this.cdsGridManagedIdentity.ShowIndexColumn = false;
-            this.cdsGridManagedIdentity.Size = new System.Drawing.Size(510, 340);
-            this.cdsGridManagedIdentity.TabIndex = 115;
-            this.cdsGridManagedIdentity.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridManagedIdentity_RecordEnter);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(19, 11);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(275, 20);
-            this.lblTitle.TabIndex = 73;
-            this.lblTitle.Text = "Link to Existing Managed Identity";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(825, 271);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(78, 32);
-            this.btnCancel.TabIndex = 12;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnOk
-            // 
-            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
-            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(682, 271);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(137, 32);
-            this.btnOk.TabIndex = 11;
-            this.btnOk.Text = "Link to Plugin";
-            this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // ttInfo
-            // 
-            this.ttInfo.AutoPopDelay = 10000;
-            this.ttInfo.InitialDelay = 500;
-            this.ttInfo.ReshowDelay = 100;
-            this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.ttInfo.ToolTipTitle = "Attribute Info";
-            // 
-            // txtDisplayName
-            // 
-            this.txtDisplayName.Location = new System.Drawing.Point(104, 64);
-            this.txtDisplayName.Name = "txtDisplayName";
-            this.txtDisplayName.Size = new System.Drawing.Size(319, 20);
-            this.txtDisplayName.TabIndex = 4;
-            // 
-            // cboType
-            // 
-            this.cboType.FormattingEnabled = true;
-            this.cboType.ItemHeight = 13;
-            this.cboType.Location = new System.Drawing.Point(123, 89);
-            this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(211, 21);
-            this.cboType.TabIndex = 6;
-            // 
-            // lblPluginName
-            // 
-            this.lblPluginName.AutoSize = true;
-            this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPluginName.Location = new System.Drawing.Point(666, 309);
-            this.lblPluginName.Name = "lblPluginName";
-            this.lblPluginName.Size = new System.Drawing.Size(120, 13);
-            this.lblPluginName.TabIndex = 120;
-            this.lblPluginName.Text = "Assembly : Plugin Name";
             // 
             // imageManagedIdentity
             // 
@@ -338,6 +258,99 @@
             this.cdsTxtIdentityName.Size = new System.Drawing.Size(260, 20);
             this.cdsTxtIdentityName.TabIndex = 12;
             // 
+            // cdsGridManagedIdentity
+            // 
+            this.cdsGridManagedIdentity.AllowUserToOrderColumns = true;
+            this.cdsGridManagedIdentity.AllowUserToResizeRows = false;
+            this.cdsGridManagedIdentity.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.cdsGridManagedIdentity.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.cdsGridManagedIdentity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cdsGridManagedIdentity.ColumnOrder = "name, applicationid, tenantid, credentialsource, subjectscope";
+            this.cdsGridManagedIdentity.FilterColumns = "";
+            this.cdsGridManagedIdentity.Location = new System.Drawing.Point(23, 97);
+            this.cdsGridManagedIdentity.Name = "cdsGridManagedIdentity";
+            this.cdsGridManagedIdentity.OrganizationService = null;
+            this.cdsGridManagedIdentity.ShowFriendlyNames = true;
+            this.cdsGridManagedIdentity.ShowIdColumn = false;
+            this.cdsGridManagedIdentity.ShowIndexColumn = false;
+            this.cdsGridManagedIdentity.Size = new System.Drawing.Size(510, 340);
+            this.cdsGridManagedIdentity.TabIndex = 115;
+            this.cdsGridManagedIdentity.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridManagedIdentity_RecordEnter);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(19, 11);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(275, 20);
+            this.lblTitle.TabIndex = 73;
+            this.lblTitle.Text = "Link to Existing Managed Identity";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(825, 271);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(78, 32);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnOk
+            // 
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOk.Location = new System.Drawing.Point(682, 271);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(137, 32);
+            this.btnOk.TabIndex = 11;
+            this.btnOk.Text = "Link to Plugin";
+            this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // ttInfo
+            // 
+            this.ttInfo.AutoPopDelay = 10000;
+            this.ttInfo.InitialDelay = 500;
+            this.ttInfo.ReshowDelay = 100;
+            this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ttInfo.ToolTipTitle = "Attribute Info";
+            // 
+            // txtDisplayName
+            // 
+            this.txtDisplayName.Location = new System.Drawing.Point(104, 64);
+            this.txtDisplayName.Name = "txtDisplayName";
+            this.txtDisplayName.Size = new System.Drawing.Size(319, 20);
+            this.txtDisplayName.TabIndex = 4;
+            // 
+            // cboType
+            // 
+            this.cboType.FormattingEnabled = true;
+            this.cboType.ItemHeight = 13;
+            this.cboType.Location = new System.Drawing.Point(123, 89);
+            this.cboType.Name = "cboType";
+            this.cboType.Size = new System.Drawing.Size(211, 21);
+            this.cboType.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(293, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 13);
+            this.label1.TabIndex = 121;
+            this.label1.Text = "Note : Filter on CredentialSource = 2 (IsManaged)";
+            // 
             // ExistingManagedIdentityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,9 +368,9 @@
             this.Text = "Plugin Identity Manager ";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cdsGridManagedIdentity)).EndInit();
             this.imageManagedIdentity.ResumeLayout(false);
             this.imageManagedIdentity.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cdsGridManagedIdentity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,5 +399,6 @@
         private System.Windows.Forms.CheckBox chkUnmanaged;
         private System.Windows.Forms.CheckBox chkManaged;
         private System.Windows.Forms.Label lblPluginName;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -47,11 +47,14 @@
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.cboType = new System.Windows.Forms.ComboBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtTenantId);
             this.panel2.Controls.Add(this.label1);
@@ -178,6 +181,7 @@
             // 
             // cboCredentialSource
             // 
+            this.cboCredentialSource.Enabled = false;
             this.cboCredentialSource.FormattingEnabled = true;
             this.cboCredentialSource.ItemHeight = 13;
             this.cboCredentialSource.Location = new System.Drawing.Point(123, 118);
@@ -226,6 +230,16 @@
             this.cboType.Size = new System.Drawing.Size(211, 21);
             this.cboType.TabIndex = 6;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
+            this.pictureBox5.Location = new System.Drawing.Point(339, 119);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox5.TabIndex = 115;
+            this.pictureBox5.TabStop = false;
+            // 
             // EditManagedIdentityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +257,7 @@
             this.Text = "Plugin Identity Manager  ";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,5 +280,6 @@
         private System.Windows.Forms.TextBox txtTenantId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboSubjectScope;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

@@ -81,7 +81,7 @@
             // 
             this.lblPluginName.AutoSize = true;
             this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPluginName.Location = new System.Drawing.Point(241, 228);
+            this.lblPluginName.Location = new System.Drawing.Point(285, 240);
             this.lblPluginName.Name = "lblPluginName";
             this.lblPluginName.Size = new System.Drawing.Size(120, 13);
             this.lblPluginName.TabIndex = 115;
@@ -95,8 +95,7 @@
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 114;
             this.label2.Text = "TenantId";
-            this.ttInfo.SetToolTip(this.label2, "Localized display name for custom API response property instances. \r\nFor use when" +
-        " the message parameter is exposed to be called in an app.");
+            this.ttInfo.SetToolTip(this.label2, "Tenant Id ");
             // 
             // txtTenantId
             // 
@@ -113,7 +112,8 @@
             this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 112;
             this.label1.Text = "Subject Scope";
-            this.ttInfo.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
+            this.ttInfo.SetToolTip(this.label1, "The Subject Scope of the Managed Identity.\r\nValue: 0 Label: GlobalScope\r\nValue: 1" +
+        " Label: EnvironmentScope\r\nValue: 2 Label: DevOnlyScope\r\n");
             // 
             // cboSubjectScope
             // 
@@ -127,7 +127,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(21, 179);
+            this.label12.Location = new System.Drawing.Point(20, 200);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(182, 13);
             this.label12.TabIndex = 108;
@@ -139,7 +139,7 @@
             // 
             this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
             this.cdsCboSolutions.FormattingEnabled = true;
-            this.cdsCboSolutions.Location = new System.Drawing.Point(24, 195);
+            this.cdsCboSolutions.Location = new System.Drawing.Point(23, 216);
             this.cdsCboSolutions.Name = "cdsCboSolutions";
             this.cdsCboSolutions.OrganizationService = null;
             this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
@@ -163,7 +163,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(421, 184);
+            this.btnCancel.Location = new System.Drawing.Point(420, 205);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 12;
@@ -178,7 +178,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(278, 184);
+            this.btnOk.Location = new System.Drawing.Point(277, 205);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(137, 32);
             this.btnOk.TabIndex = 11;
@@ -195,8 +195,7 @@
             this.label10.Size = new System.Drawing.Size(68, 13);
             this.label10.TabIndex = 52;
             this.label10.Text = "ApplicationId";
-            this.ttInfo.SetToolTip(this.label10, "Localized display name for custom API response property instances. \r\nFor use when" +
-        " the message parameter is exposed to be called in an app.");
+            this.ttInfo.SetToolTip(this.label10, "Client Id (ApplicationId) of the Managed Identity in Azure");
             // 
             // txtApplicationId
             // 
@@ -217,6 +216,7 @@
             // 
             // cboCredentialSource
             // 
+            this.cboCredentialSource.Enabled = false;
             this.cboCredentialSource.FormattingEnabled = true;
             this.cboCredentialSource.ItemHeight = 13;
             this.cboCredentialSource.Location = new System.Drawing.Point(123, 118);
@@ -232,7 +232,7 @@
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 41;
             this.label4.Text = "Name";
-            this.ttInfo.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
+            this.ttInfo.SetToolTip(this.label4, "The name of the managed identity record (optional)");
             // 
             // txtName
             // 

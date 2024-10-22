@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
@@ -256,7 +257,11 @@ namespace Driv.XTB.PluginIdentityManager
                 cdsTxtIdentitySubjectScope.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
 
                 cdsTxtIdentityIsManaged.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
-                
+
+                // delete only visible if unmanaged
+                btnEditIdentity.Visible = !_selectedManagedIdentity?.IsManaged ?? false;
+                btnDelete.Visible = !_selectedManagedIdentity?.IsManaged ?? false;
+
             }
             else 
             {
@@ -268,8 +273,9 @@ namespace Driv.XTB.PluginIdentityManager
                 cdsTxtIdentitySubjectScope.Entity = null;
 
                 cdsTxtIdentityIsManaged.Entity = null;
-                
 
+                btnEditIdentity.Visible = false;
+                btnDelete.Visible = false;
             }
             
 
@@ -448,6 +454,32 @@ namespace Driv.XTB.PluginIdentityManager
         {
             // open edit identity form
             EditManagedIdentityDialog();
+        }
+
+        private void tslAbout_Click(object sender, EventArgs e)
+        {
+            var about = new About();
+            about.StartPosition = FormStartPosition.CenterParent;
+            about.lblVersion.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            about.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            var confirmResult = MessageBox.Show("Are you sure to delete this managed identity record ??",
+                                     "Confirm Delete!!",
+                                     MessageBoxButtons.YesNo,
+                                     MessageBoxIcon.Warning);
+            if (confirmResult == DialogResult.Yes)
+            {
+                // delete the selected item
+                if (_selectedManagedIdentity != null)
+                {
+                    Service.Delete(ManagedIdentity.EntityName, _selectedManagedIdentity.ManagedIdentityRow.Id);
+                    ExecuteMethod(LoadPluginAssemblies);
+                }
+            }
         }
     }
 }

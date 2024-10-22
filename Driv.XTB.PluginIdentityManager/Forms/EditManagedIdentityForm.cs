@@ -105,10 +105,7 @@ namespace Driv.XTB.PluginIdentityManager.Forms
             {
                 managedIdentity[ManagedIdentity.PrimaryName] = txtName.Text;
             }
-            if(cboCredentialSource.SelectedIndex != ((OptionSetValue)_identity.ManagedIdentityRow[ManagedIdentity.CredentialSource]).Value)
-            {
-                managedIdentity[ManagedIdentity.CredentialSource] = new OptionSetValue(cboCredentialSource.SelectedIndex);
-            }
+            
             if (cboSubjectScope.SelectedIndex != ((OptionSetValue)_identity.ManagedIdentityRow[ManagedIdentity.SubjectScope]).Value)
             {
                 managedIdentity[ManagedIdentity.SubjectScope] = new OptionSetValue(cboSubjectScope.SelectedIndex);

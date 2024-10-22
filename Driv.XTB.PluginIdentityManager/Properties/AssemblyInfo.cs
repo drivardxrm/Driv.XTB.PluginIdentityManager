@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Driv.XTB.PluginIdentityManager")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Create and Assign Managed Identity Records to Dataverse Plugin Assemblies")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("David Rivard")]
 [assembly: AssemblyProduct("Driv.XTB.PluginIdentityManager")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]

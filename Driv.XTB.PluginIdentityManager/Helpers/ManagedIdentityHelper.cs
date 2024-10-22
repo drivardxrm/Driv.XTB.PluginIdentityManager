@@ -11,6 +11,7 @@ namespace Driv.XTB.PluginIdentityManager.Helpers
 {
     public static  class ManagedIdentityHelper
     {
+        // Filter on CredentialSource = 2 (IsManaged)
         public static EntityCollection GetAllManagedIdentities(this IOrganizationService service)
         {
             var fetchXml = $@"
@@ -34,7 +35,9 @@ namespace Driv.XTB.PluginIdentityManager.Helpers
                 <attribute name='statuscode' />
                 <attribute name='subjectscope' />
                 <attribute name='tenantid' />
-               
+                <filter>
+                  <condition attribute='credentialsource' operator='eq' value='2' />
+                </filter>
                 <order attribute='name' />
 
               </entity>
@@ -45,45 +48,6 @@ namespace Driv.XTB.PluginIdentityManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
-        public static EntityCollection GetManagedIdentitiesFor(this IOrganizationService service, Guid solutionid)
-        {
-            var fetchXml = $@"
-            <fetch>
-              <entity name='managedidentity'>
-                <attribute name='applicationid' />
-                <attribute name='componentstate' />
-                <attribute name='createdby' />
-                <attribute name='createdon' />
-                <attribute name='credentialsource' />
-                <attribute name='iscustomizable' />
-                <attribute name='ismanaged' />
-                <attribute name='keyvaultreferenceid' />
-                <attribute name='managedidentityid' />
-                <attribute name='name' />
-                <attribute name='objectid' />
-                <attribute name='ownerid' />
-                <attribute name='owningbusinessunit' />
-                <attribute name='solutionid' />
-                <attribute name='statecode' />
-                <attribute name='statuscode' />
-                <attribute name='subjectscope' />
-                <attribute name='tenantid' />
-                
-                <link-entity name='solutioncomponent' from='objectid' to='managedidentityid' link-type='inner' alias='SC'>
-                    <attribute name='componenttype' />
-                    <attribute name='solutionid' />
-                    <filter>
-                        <condition attribute='solutionid' operator='eq' value='{solutionid}'/>
-                    </filter>
-                    
-                </link-entity>
-                <order attribute='name' />
-              </entity>
-            </fetch>";
-
-
-            var fetch = new FetchExpression(fetchXml);
-            return service.RetrieveMultiple(fetch);
-        }
+        
     }
 }

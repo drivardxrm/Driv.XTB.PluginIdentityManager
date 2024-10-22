@@ -42,7 +42,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -178,17 +177,6 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Plugin Identity Manager";
             // 
-            // linkLabel4
-            // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Location = new System.Drawing.Point(173, 163);
-            this.linkLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(210, 13);
-            this.linkLabel4.TabIndex = 29;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "Settings icons created by Freepik - Flaticon";
-            // 
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
@@ -219,7 +207,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(730, 448);
-            this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -259,7 +246,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linkLabel5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.LinkLabel linkLabel3;
         internal System.Windows.Forms.PictureBox pictureBox1;
     }

@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PluginIdentityManagerControl));
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
+            this.menuRefresh = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSample = new System.Windows.Forms.ToolStripButton();
+            this.tslAbout = new System.Windows.Forms.ToolStripLabel();
             this.grpFilter = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cdsCboPlugin = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
@@ -45,7 +47,9 @@
             this.imagePlugin = new Driv.XTB.PluginIdentityManager.ImageGroupBox();
             this.Version = new System.Windows.Forms.Label();
             this.cdsTxtPluginVersion = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.btnExistingIdentity = new System.Windows.Forms.Button();
             this.imageManagedIdentity = new Driv.XTB.PluginIdentityManager.ImageGroupBox();
+            this.btnEditIdentity = new System.Windows.Forms.Button();
             this.cdsTxtIdentityIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cdsTxtIdentitySubjectScope = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -61,12 +65,9 @@
             this.cdsTxtPluginIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cdsTxtPluginName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.btnExistingIdentity = new System.Windows.Forms.Button();
-            this.btnEditIdentity = new System.Windows.Forms.Button();
             this.btnNewIdentity = new System.Windows.Forms.Button();
-            this.menuRefresh = new System.Windows.Forms.ToolStripButton();
-            this.tslAbout = new System.Windows.Forms.ToolStripLabel();
+            this.cdsTxtPluginName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.toolStripMenu.SuspendLayout();
             this.grpFilter.SuspendLayout();
             this.imagePlugin.SuspendLayout();
@@ -87,6 +88,15 @@
             this.toolStripMenu.TabIndex = 4;
             this.toolStripMenu.Text = "toolStrip1";
             // 
+            // menuRefresh
+            // 
+            this.menuRefresh.Image = ((System.Drawing.Image)(resources.GetObject("menuRefresh.Image")));
+            this.menuRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuRefresh.Name = "menuRefresh";
+            this.menuRefresh.Size = new System.Drawing.Size(132, 28);
+            this.menuRefresh.Text = "Refresh Plugin List";
+            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
+            // 
             // tssSeparator1
             // 
             this.tssSeparator1.Name = "tssSeparator1";
@@ -96,6 +106,16 @@
             // 
             this.tsbSample.Name = "tsbSample";
             this.tsbSample.Size = new System.Drawing.Size(23, 28);
+            // 
+            // tslAbout
+            // 
+            this.tslAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tslAbout.Image = global::Driv.XTB.PluginIdentityManager.Properties.Resources.icons8_identity_32;
+            this.tslAbout.IsLink = true;
+            this.tslAbout.Name = "tslAbout";
+            this.tslAbout.Size = new System.Drawing.Size(113, 28);
+            this.tslAbout.Text = "by David Rivard";
+            this.tslAbout.Click += new System.EventHandler(this.tslAbout_Click);
             // 
             // grpFilter
             // 
@@ -234,7 +254,7 @@
             this.imagePlugin.Icon = ((System.Drawing.Icon)(resources.GetObject("imagePlugin.Icon")));
             this.imagePlugin.Location = new System.Drawing.Point(13, 125);
             this.imagePlugin.Name = "imagePlugin";
-            this.imagePlugin.Size = new System.Drawing.Size(756, 309);
+            this.imagePlugin.Size = new System.Drawing.Size(789, 309);
             this.imagePlugin.TabIndex = 23;
             this.imagePlugin.TabStop = false;
             this.imagePlugin.Text = "Plugin Assembly";
@@ -262,8 +282,24 @@
             this.cdsTxtPluginVersion.Size = new System.Drawing.Size(68, 20);
             this.cdsTxtPluginVersion.TabIndex = 93;
             // 
+            // btnExistingIdentity
+            // 
+            this.btnExistingIdentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExistingIdentity.Image = global::Driv.XTB.PluginIdentityManager.Properties.Resources.icons8_link_25;
+            this.btnExistingIdentity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExistingIdentity.Location = new System.Drawing.Point(528, 23);
+            this.btnExistingIdentity.Name = "btnExistingIdentity";
+            this.btnExistingIdentity.Size = new System.Drawing.Size(181, 33);
+            this.btnExistingIdentity.TabIndex = 92;
+            this.btnExistingIdentity.Text = "Link to existing Identity";
+            this.btnExistingIdentity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExistingIdentity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExistingIdentity.UseVisualStyleBackColor = true;
+            this.btnExistingIdentity.Click += new System.EventHandler(this.btnExistingIdentity_Click);
+            // 
             // imageManagedIdentity
             // 
+            this.imageManagedIdentity.Controls.Add(this.btnDelete);
             this.imageManagedIdentity.Controls.Add(this.btnEditIdentity);
             this.imageManagedIdentity.Controls.Add(this.cdsTxtIdentityIsManaged);
             this.imageManagedIdentity.Controls.Add(this.label6);
@@ -281,10 +317,25 @@
             this.imageManagedIdentity.Icon = ((System.Drawing.Icon)(resources.GetObject("imageManagedIdentity.Icon")));
             this.imageManagedIdentity.Location = new System.Drawing.Point(355, 58);
             this.imageManagedIdentity.Name = "imageManagedIdentity";
-            this.imageManagedIdentity.Size = new System.Drawing.Size(395, 245);
+            this.imageManagedIdentity.Size = new System.Drawing.Size(428, 245);
             this.imageManagedIdentity.TabIndex = 91;
             this.imageManagedIdentity.TabStop = false;
             this.imageManagedIdentity.Text = "Managed Identity";
+            // 
+            // btnEditIdentity
+            // 
+            this.btnEditIdentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditIdentity.Image = global::Driv.XTB.PluginIdentityManager.Properties.Resources.icons8_edit_20;
+            this.btnEditIdentity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditIdentity.Location = new System.Drawing.Point(348, 21);
+            this.btnEditIdentity.Name = "btnEditIdentity";
+            this.btnEditIdentity.Size = new System.Drawing.Size(74, 33);
+            this.btnEditIdentity.TabIndex = 96;
+            this.btnEditIdentity.Text = "Edit";
+            this.btnEditIdentity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditIdentity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditIdentity.UseVisualStyleBackColor = true;
+            this.btnEditIdentity.Click += new System.EventHandler(this.btnEditIdentity_Click);
             // 
             // cdsTxtIdentityIsManaged
             // 
@@ -456,50 +507,6 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Name";
             // 
-            // cdsTxtPluginName
-            // 
-            this.cdsTxtPluginName.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtPluginName.DisplayFormat = "name";
-            this.cdsTxtPluginName.Entity = null;
-            this.cdsTxtPluginName.EntityReference = null;
-            this.cdsTxtPluginName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtPluginName.Location = new System.Drawing.Point(60, 36);
-            this.cdsTxtPluginName.LogicalName = "pluginassembly";
-            this.cdsTxtPluginName.Name = "cdsTxtPluginName";
-            this.cdsTxtPluginName.OrganizationService = null;
-            this.cdsTxtPluginName.Size = new System.Drawing.Size(274, 20);
-            this.cdsTxtPluginName.TabIndex = 11;
-            // 
-            // btnExistingIdentity
-            // 
-            this.btnExistingIdentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExistingIdentity.Image = global::Driv.XTB.PluginIdentityManager.Properties.Resources.icons8_link_25;
-            this.btnExistingIdentity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExistingIdentity.Location = new System.Drawing.Point(528, 23);
-            this.btnExistingIdentity.Name = "btnExistingIdentity";
-            this.btnExistingIdentity.Size = new System.Drawing.Size(181, 33);
-            this.btnExistingIdentity.TabIndex = 92;
-            this.btnExistingIdentity.Text = "Link to existing Identity";
-            this.btnExistingIdentity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExistingIdentity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExistingIdentity.UseVisualStyleBackColor = true;
-            this.btnExistingIdentity.Click += new System.EventHandler(this.btnExistingIdentity_Click);
-            // 
-            // btnEditIdentity
-            // 
-            this.btnEditIdentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditIdentity.Image = global::Driv.XTB.PluginIdentityManager.Properties.Resources.icons8_edit_20;
-            this.btnEditIdentity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditIdentity.Location = new System.Drawing.Point(327, 25);
-            this.btnEditIdentity.Name = "btnEditIdentity";
-            this.btnEditIdentity.Size = new System.Drawing.Size(62, 33);
-            this.btnEditIdentity.TabIndex = 96;
-            this.btnEditIdentity.Text = "Edit";
-            this.btnEditIdentity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditIdentity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditIdentity.UseVisualStyleBackColor = true;
-            this.btnEditIdentity.Click += new System.EventHandler(this.btnEditIdentity_Click);
-            // 
             // btnNewIdentity
             // 
             this.btnNewIdentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -515,23 +522,35 @@
             this.btnNewIdentity.UseVisualStyleBackColor = true;
             this.btnNewIdentity.Click += new System.EventHandler(this.btnNewIdentity_Click);
             // 
-            // menuRefresh
+            // cdsTxtPluginName
             // 
-            this.menuRefresh.Image = ((System.Drawing.Image)(resources.GetObject("menuRefresh.Image")));
-            this.menuRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuRefresh.Name = "menuRefresh";
-            this.menuRefresh.Size = new System.Drawing.Size(132, 28);
-            this.menuRefresh.Text = "Refresh Plugin List";
-            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
+            this.cdsTxtPluginName.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsTxtPluginName.DisplayFormat = "name";
+            this.cdsTxtPluginName.Entity = null;
+            this.cdsTxtPluginName.EntityReference = null;
+            this.cdsTxtPluginName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsTxtPluginName.Location = new System.Drawing.Point(60, 36);
+            this.cdsTxtPluginName.LogicalName = "pluginassembly";
+            this.cdsTxtPluginName.Name = "cdsTxtPluginName";
+            this.cdsTxtPluginName.OrganizationService = null;
+            this.cdsTxtPluginName.Size = new System.Drawing.Size(274, 20);
+            this.cdsTxtPluginName.TabIndex = 11;
             // 
-            // tslAbout
+            // btnDelete
             // 
-            this.tslAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tslAbout.Image = global::Driv.XTB.PluginIdentityManager.Properties.Resources.icons8_identity_32;
-            this.tslAbout.IsLink = true;
-            this.tslAbout.Name = "tslAbout";
-            this.tslAbout.Size = new System.Drawing.Size(113, 28);
-            this.tslAbout.Text = "by David Rivard";
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(348, 55);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(74, 29);
+            this.btnDelete.TabIndex = 127;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // PluginIdentityManagerControl
             // 
@@ -595,5 +614,6 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtPluginVersion;
         private System.Windows.Forms.ToolStripLabel tslAbout;
         private System.Windows.Forms.Button btnEditIdentity;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
