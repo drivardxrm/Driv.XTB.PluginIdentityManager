@@ -54,7 +54,7 @@ namespace Driv.XTB.PluginIdentityManager.Forms
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/drivardxrm/XTB.CustomApiManager");
+            System.Diagnostics.Process.Start("https://github.com/drivardxrm/Driv.XTB.PluginIdentityManager");
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

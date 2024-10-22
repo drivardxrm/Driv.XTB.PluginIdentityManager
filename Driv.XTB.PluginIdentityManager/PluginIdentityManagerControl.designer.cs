@@ -49,6 +49,7 @@
             this.cdsTxtPluginVersion = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.btnExistingIdentity = new System.Windows.Forms.Button();
             this.imageManagedIdentity = new Driv.XTB.PluginIdentityManager.ImageGroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnEditIdentity = new System.Windows.Forms.Button();
             this.cdsTxtIdentityIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -67,7 +68,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnNewIdentity = new System.Windows.Forms.Button();
             this.cdsTxtPluginName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.txtCustomizableWarning = new System.Windows.Forms.TextBox();
             this.toolStripMenu.SuspendLayout();
             this.grpFilter.SuspendLayout();
             this.imagePlugin.SuspendLayout();
@@ -240,6 +241,7 @@
             // 
             // imagePlugin
             // 
+            this.imagePlugin.Controls.Add(this.txtCustomizableWarning);
             this.imagePlugin.Controls.Add(this.Version);
             this.imagePlugin.Controls.Add(this.cdsTxtPluginVersion);
             this.imagePlugin.Controls.Add(this.btnExistingIdentity);
@@ -321,6 +323,22 @@
             this.imageManagedIdentity.TabIndex = 91;
             this.imageManagedIdentity.TabStop = false;
             this.imageManagedIdentity.Text = "Managed Identity";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(348, 55);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(74, 29);
+            this.btnDelete.TabIndex = 127;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEditIdentity
             // 
@@ -536,21 +554,20 @@
             this.cdsTxtPluginName.Size = new System.Drawing.Size(274, 20);
             this.cdsTxtPluginName.TabIndex = 11;
             // 
-            // btnDelete
+            // txtCustomizableWarning
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(348, 55);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(74, 29);
-            this.btnDelete.TabIndex = 127;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Visible = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.txtCustomizableWarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.txtCustomizableWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomizableWarning.Location = new System.Drawing.Point(21, 129);
+            this.txtCustomizableWarning.Multiline = true;
+            this.txtCustomizableWarning.Name = "txtCustomizableWarning";
+            this.txtCustomizableWarning.ReadOnly = true;
+            this.txtCustomizableWarning.Size = new System.Drawing.Size(199, 52);
+            this.txtCustomizableWarning.TabIndex = 96;
+            this.txtCustomizableWarning.Text = "Plugin Assembly must be signed with a valid certificate to associate to a managed" +
+    " identity";
+            this.txtCustomizableWarning.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCustomizableWarning.Visible = false;
             // 
             // PluginIdentityManagerControl
             // 
@@ -615,5 +632,6 @@
         private System.Windows.Forms.ToolStripLabel tslAbout;
         private System.Windows.Forms.Button btnEditIdentity;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtCustomizableWarning;
     }
 }
