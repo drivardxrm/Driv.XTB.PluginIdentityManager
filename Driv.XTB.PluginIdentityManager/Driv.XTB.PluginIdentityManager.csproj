@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Driv.XTB.PluginIdentityManager</RootNamespace>
-    <AssemblyName>Driv.XTB.PluginIdentityManager</AssemblyName>
+    <AssemblyName>Driv.XTB.PluginIdentityManager.Unmerged</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
