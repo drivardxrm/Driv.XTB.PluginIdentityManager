@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Driv.XTB.PluginIdentityManager</id>
+    <version>1.0.0</version>
+    <title>Plugin Identity Manager for XrmToolBox</title>
+    <authors>David Rivard</authors>
+    <owners>drivardxrm</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/drivardxrm/Driv.XTB.PluginIdentityManager</projectUrl>
+    <iconUrl>https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/blob/main/Images/icons8-vr-64.png?raw=true</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Create and Assign Managed Identity Records to Dataverse Plugin Assemblies</summary>
+    <description>
+        Create and Assign Managed Identity Records to Dataverse Plugin Assemblies.
+    </description>
+    <releaseNotes>
+      Full release notes:
+      https://github.com/drivardxrm/Driv.XTB.PluginIdentityManager/releases/latest
+    </releaseNotes>
+    <copyright>Copyright David Rivard 2024</copyright>
+    <tags>XrmToolBox Plugins Dataverse Managed Identity</tags>
+    <dependencies>
+      <dependency id="XrmToolBox" version="1.2021.9.52" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Driv.XTB.PluginIdentityManager\bin\Release\Driv.XTB.PluginIdentityManager.dll" target="lib\net452\Plugins"/>
+  </files>
+</package>
