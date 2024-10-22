@@ -2,9 +2,9 @@
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Target Name="ILRepacker" AfterTargets="Build">
     <ItemGroup>
-      <InputAssemblies Include="$(TargetPath)" />
       <InputAssemblies Include="$(OutputPath)\xrmtb.XrmToolBox.Controls.dll" />
     </ItemGroup>
+    <Message Text="MERGING: @(InputAssemblies->'%(Filename)') into $(OutputAssembly)" Importance="High" />
     <ILRepack AllowDuplicateResources="false" DebugInfo="true" Internalize="true" InputAssemblies="@(InputAssemblies)" OutputFile="$(TargetPath)" Parallel="true" TargetKind="SameAsPrimaryAssembly" />
   </Target>
   <PropertyGroup>
