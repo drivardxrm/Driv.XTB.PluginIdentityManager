@@ -10,9 +10,9 @@
     <projectUrl>https://github.com/drivardxrm/Driv.XTB.PluginIdentityManager</projectUrl>
     <iconUrl>https://github.com/drivardxrm/Driv.XTB.PluginIdentityManager/blob/main/Images/icons8-identity-64.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <summary>XrmToolBox too to Create, Update and Assign Managed Identity Records to Dataverse Plugin Assemblies</summary>
+    <summary>XrmToolBox tool to create, update and assign managed identity records to Dataverse plugin assemblies</summary>
     <description>
-        Create, Update and Assign Managed Identity Records to Dataverse Plugin Assemblies.
+        Create, update and assign managed identity records to Dataverse plugin assemblies.
     </description>
     <releaseNotes>
       Full release notes:
