@@ -8,7 +8,7 @@
     <owners>drivardxrm</owners>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/drivardxrm/Driv.XTB.PluginIdentityManager</projectUrl>
-    <iconUrl>https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/blob/main/Images/icons8-vr-64.png?raw=true</iconUrl>
+    <iconUrl>https://github.com/drivardxrm/Driv.XTB.PluginIdentityManager/blob/main/Images/icons8-identity-64.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Create and Assign Managed Identity Records to Dataverse Plugin Assemblies</summary>
     <description>
