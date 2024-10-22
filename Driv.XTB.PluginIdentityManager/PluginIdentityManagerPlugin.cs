@@ -13,7 +13,7 @@ namespace Driv.XTB.PluginIdentityManager
     // To generate Base64 string for Images below, you can use https://www.base64-image.de/
     [Export(typeof(IXrmToolBoxPlugin)),
         ExportMetadata("Name", "Plugin Identity Manager"),
-        ExportMetadata("Description", "Create, Update and Assign Managed Identity Records to Dataverse Plugin Assemblies"),
+        ExportMetadata("Description", "Create, update and assign managed identity records to Dataverse plugin assemblies"),
         // Please specify the base64 content of a 32x32 pixels image
         ExportMetadata("SmallImageBase64", "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACgklEQVR4nGNgGAWjAApaz/0Xbbjya03DlZ9fGq/8+k8LDDb78q/V9Tf+izCgg4Yrv9bQymIMfPnXKiwO+PmFfg74+RnDAY30shyKh44Dso68/285/zoYZx/5QF8HZB15/5+tav9/pvK9YAxiozsifOszuDw+rDPtIukOsJx/HcMgy/k3UNQUn/oCdgQhnHLgDXUcYLXgBv2iIPvIB5QoYMcSBan734KDlxD2WHWPvESYfeQDONhBGFsipLkDGgcqG5ad+fLffvHt/+Jtx8FBD8Igtv2S22A5QomQIgck7X39n7v2IM4sBZIDqcGXDSlygM60iyTna2y45uK7/0XHz/3PO3L4f+mpq/8brvwgzgEpB96QnK+RccXZh//DNzb9d13o/d95gTsceywJ/Z+8a9H/+ktfaJcIC4+d/u++OAjFYnQcsDr3v/NCZ2EUB1CjOgb5nJDlMOy0wG0Pw38GRkQIXP61mlIHgIIdr8+XBf3vPNz032WBB8QR8z1C4Q4ANZPAjrj88zM5ltdefIcR58g4cHnw/0MPNv2/8/bE/84jMIe6bWWgFnBa4OaIbGHv0db/kasiweyg5SH/jzzcArb84P1N//2XB0JDwP0l1RzguMDdD2Z5w/5qsGVnnu7+n7E57f/RR1sxLIemgx9Uc4DLQhcTmMGei33/b7+1AmwpDB95uPl/0PJg1IQ43/0e1Rxgv9+exWm++xtsjsBmOSQE3GcxUBM4zXerQ7bAe4nf/4Xnp6EEO8L3bn8cF7hrU9UB9vPtOZznu58krhxwr6Kq5TAAKuFAhQxOy+e7/wZbjlwIUR38Z2AEFTKgfO68wP2F03y3n6AEB4pzp7keWshqAeFDmFrBEjA/AAAAAElFTkSuQmCC"),
         // Please specify the base64 content of a 80x80 pixels image
