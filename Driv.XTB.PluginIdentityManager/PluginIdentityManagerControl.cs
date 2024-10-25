@@ -47,6 +47,7 @@ namespace Driv.XTB.PluginIdentityManager
 
         private void PluginIdentityManagerControl_Load(object sender, EventArgs e)
         {
+            LoadGlobalSettings();
             LoadConnectionSettings();
 
             ExecuteMethod(InitializeService);
@@ -59,6 +60,21 @@ namespace Driv.XTB.PluginIdentityManager
             if (!SettingsManager.Instance.TryLoad(GetType(), out _connectionsettings, ConnectionDetail.ConnectionId.ToString()))
             {
                 _connectionsettings = new Settings();
+
+                LogWarning("Settings not found => a new settings file has been created!");
+            }
+            else
+            {
+                LogInfo("Settings found and loaded");
+            }
+        }
+
+        private void LoadGlobalSettings()
+        {
+            // Loads or creates the settings for the plugin
+            if (!SettingsManager.Instance.TryLoad(GetType(), out _globalsettings))
+            {
+                _globalsettings = new Settings();
 
                 LogWarning("Settings not found => a new settings file has been created!");
             }
@@ -104,7 +120,9 @@ namespace Driv.XTB.PluginIdentityManager
                 _globalsettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
+
                 SetCdsCboPluginDataSource(null);
+                
 
 
                 //LoadSolutions();
@@ -124,6 +142,12 @@ namespace Driv.XTB.PluginIdentityManager
         {
             cdsCboPlugin.SelectedIndexChanged -= new EventHandler(cdsCboPlugin_SelectedIndexChanged);
             cdsCboPlugin.DataSource = datasource;
+            if (datasource == null) 
+            {
+                _selectedPlugin = null;
+                _selectedManagedIdentity = null;
+                _selectedSolution = null;
+            }
             cdsCboPlugin.SelectedIndexChanged += new EventHandler(cdsCboPlugin_SelectedIndexChanged);
         }
 
@@ -262,6 +286,8 @@ namespace Driv.XTB.PluginIdentityManager
                 btnEditIdentity.Visible = !_selectedManagedIdentity?.IsManaged ?? false;
                 btnDelete.Visible = !_selectedManagedIdentity?.IsManaged ?? false;
 
+                
+
             }
             else 
             {
@@ -276,8 +302,10 @@ namespace Driv.XTB.PluginIdentityManager
 
                 btnEditIdentity.Visible = false;
                 btnDelete.Visible = false;
+
+                
             }
-            
+            lblCertificate.Visible = _selectedPlugin != null && _selectedManagedIdentity == null;
 
             cdsTxtPluginName.Entity = _selectedPlugin?.PluginAssemblyRow;
             cdsTxtPluginVersion.Entity = _selectedPlugin?.PluginAssemblyRow;

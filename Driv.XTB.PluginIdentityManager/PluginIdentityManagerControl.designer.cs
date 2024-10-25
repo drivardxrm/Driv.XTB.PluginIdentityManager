@@ -45,6 +45,7 @@
             this.rbSolution = new System.Windows.Forms.RadioButton();
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.imagePlugin = new Driv.XTB.PluginIdentityManager.ImageGroupBox();
+            this.lblCertificate = new System.Windows.Forms.TextBox();
             this.Version = new System.Windows.Forms.Label();
             this.cdsTxtPluginVersion = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.btnExistingIdentity = new System.Windows.Forms.Button();
@@ -68,7 +69,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnNewIdentity = new System.Windows.Forms.Button();
             this.cdsTxtPluginName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.txtCustomizableWarning = new System.Windows.Forms.TextBox();
             this.toolStripMenu.SuspendLayout();
             this.grpFilter.SuspendLayout();
             this.imagePlugin.SuspendLayout();
@@ -241,7 +241,7 @@
             // 
             // imagePlugin
             // 
-            this.imagePlugin.Controls.Add(this.txtCustomizableWarning);
+            this.imagePlugin.Controls.Add(this.lblCertificate);
             this.imagePlugin.Controls.Add(this.Version);
             this.imagePlugin.Controls.Add(this.cdsTxtPluginVersion);
             this.imagePlugin.Controls.Add(this.btnExistingIdentity);
@@ -260,6 +260,21 @@
             this.imagePlugin.TabIndex = 23;
             this.imagePlugin.TabStop = false;
             this.imagePlugin.Text = "Plugin Assembly";
+            // 
+            // lblCertificate
+            // 
+            this.lblCertificate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblCertificate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCertificate.Location = new System.Drawing.Point(21, 129);
+            this.lblCertificate.Multiline = true;
+            this.lblCertificate.Name = "lblCertificate";
+            this.lblCertificate.ReadOnly = true;
+            this.lblCertificate.Size = new System.Drawing.Size(199, 52);
+            this.lblCertificate.TabIndex = 96;
+            this.lblCertificate.Text = "Plugin Assembly must be signed with a valid certificate to associate to a managed" +
+    " identity";
+            this.lblCertificate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblCertificate.Visible = false;
             // 
             // Version
             // 
@@ -554,21 +569,6 @@
             this.cdsTxtPluginName.Size = new System.Drawing.Size(274, 20);
             this.cdsTxtPluginName.TabIndex = 11;
             // 
-            // txtCustomizableWarning
-            // 
-            this.txtCustomizableWarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtCustomizableWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomizableWarning.Location = new System.Drawing.Point(21, 129);
-            this.txtCustomizableWarning.Multiline = true;
-            this.txtCustomizableWarning.Name = "txtCustomizableWarning";
-            this.txtCustomizableWarning.ReadOnly = true;
-            this.txtCustomizableWarning.Size = new System.Drawing.Size(199, 52);
-            this.txtCustomizableWarning.TabIndex = 96;
-            this.txtCustomizableWarning.Text = "Plugin Assembly must be signed with a valid certificate to associate to a managed" +
-    " identity";
-            this.txtCustomizableWarning.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCustomizableWarning.Visible = false;
-            // 
             // PluginIdentityManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,6 +632,6 @@
         private System.Windows.Forms.ToolStripLabel tslAbout;
         private System.Windows.Forms.Button btnEditIdentity;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox txtCustomizableWarning;
+        private System.Windows.Forms.TextBox lblCertificate;
     }
 }
