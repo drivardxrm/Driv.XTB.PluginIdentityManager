@@ -146,7 +146,6 @@ namespace Driv.XTB.PluginIdentityManager
             {
                 _selectedPlugin = null;
                 _selectedManagedIdentity = null;
-                _selectedSolution = null;
             }
             cdsCboPlugin.SelectedIndexChanged += new EventHandler(cdsCboPlugin_SelectedIndexChanged);
         }
@@ -509,5 +508,36 @@ namespace Driv.XTB.PluginIdentityManager
                 }
             }
         }
+
+        private void rbSolution_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSolution.Checked)
+            {
+
+                SetCdsCboPluginDataSource(null);
+
+
+                cdsCboPlugin.SelectedIndex = -1;
+
+                cdsCboSolutions.Enabled = true;
+
+                ExecuteMethod(LoadSolutions, Guid.Empty);
+                cdsCboSolutions.Select();
+
+            }
+            else
+            {
+                cdsCboSolutions.Enabled = false;
+
+
+                SetCdsCboSolutionsDataSource(null);
+
+
+                cdsCboSolutions.SelectedIndex = -1;
+                _selectedSolution = null;
+
+            }
+        }
+
     }
 }

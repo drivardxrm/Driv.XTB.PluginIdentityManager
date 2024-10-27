@@ -215,6 +215,7 @@
             this.cdsCboSolutions.OrganizationService = null;
             this.cdsCboSolutions.Size = new System.Drawing.Size(366, 21);
             this.cdsCboSolutions.TabIndex = 3;
+            this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
             // 
             // rbSolution
             // 
@@ -226,6 +227,7 @@
             this.rbSolution.TabStop = true;
             this.rbSolution.Text = "By Solution";
             this.rbSolution.UseVisualStyleBackColor = true;
+            this.rbSolution.CheckedChanged += new System.EventHandler(this.rbSolution_CheckedChanged);
             // 
             // rbAll
             // 
