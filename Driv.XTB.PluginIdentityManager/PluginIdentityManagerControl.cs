@@ -131,6 +131,9 @@ namespace Driv.XTB.PluginIdentityManager
 
                 //select the all radio button
                 rbAll.Checked = true;
+                _selectedManagedIdentity = null;
+                _selectedPlugin = null;
+                _selectedSolution = null;
                 ExecuteMethod(LoadPluginAssemblies);
                 cdsCboPlugin.Select();
             }
@@ -142,11 +145,6 @@ namespace Driv.XTB.PluginIdentityManager
         {
             cdsCboPlugin.SelectedIndexChanged -= new EventHandler(cdsCboPlugin_SelectedIndexChanged);
             cdsCboPlugin.DataSource = datasource;
-            if (datasource == null) 
-            {
-                _selectedPlugin = null;
-                _selectedManagedIdentity = null;
-            }
             cdsCboPlugin.SelectedIndexChanged += new EventHandler(cdsCboPlugin_SelectedIndexChanged);
         }
 
