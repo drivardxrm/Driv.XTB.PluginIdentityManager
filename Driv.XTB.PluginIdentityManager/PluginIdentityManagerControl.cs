@@ -7,10 +7,12 @@ using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Query;
 using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Packaging;
 using System.Linq;
 using System.Reflection;
 using System.Security.AccessControl;
@@ -33,6 +35,8 @@ namespace Driv.XTB.PluginIdentityManager
         private SolutionProxy _selectedSolution;
 
         private PluginAssemblyProxy _selectedPlugin;
+
+        private PluginPackageProxy _selectedPackage;
 
         private ManagedIdentityProxy _selectedManagedIdentity;
 
@@ -94,6 +98,7 @@ namespace Driv.XTB.PluginIdentityManager
             cdsTxtPluginName.OrganizationService = Service;
             cdsTxtPluginIsManaged.OrganizationService = Service;
             cdsTxtPluginVersion.OrganizationService = Service;
+            cdsTxtPackageName.OrganizationService = Service;
 
             cdsTxtIdentityApplicationId.OrganizationService = Service;
             cdsTxtIdentityCredentialSource.OrganizationService = Service;
@@ -263,45 +268,69 @@ namespace Driv.XTB.PluginIdentityManager
         private void SetSelectedPluginAssembly(Entity pluginAssembly)
         {
             _selectedPlugin = pluginAssembly != null ? new PluginAssemblyProxy(pluginAssembly) : null;
-            
-            
+
+
             // Mangaged Identity
-            if (_selectedPlugin?.ManagedIdentity != null)
+            if (_selectedPlugin?.Package != null) 
             {
-                var managedIdentity = Service.Retrieve(ManagedIdentity.EntityName, _selectedPlugin.ManagedIdentity.Id, new ColumnSet(true));
-                _selectedManagedIdentity = new ManagedIdentityProxy(managedIdentity);
-
-                cdsTxtIdentityName.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
-                cdsTxtIdentityApplicationId.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
-                cdsTxtIdentityTenantId.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
-                cdsTxtIdentityCredentialSource.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
-                cdsTxtIdentitySubjectScope.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
-
-                cdsTxtIdentityIsManaged.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
-
-                // delete only visible if unmanaged
-                btnEditIdentity.Visible = !_selectedManagedIdentity?.IsManaged ?? false;
-                btnDelete.Visible = !_selectedManagedIdentity?.IsManaged ?? false;
-
                 
 
+                // Get the package
+                var package = Service.Retrieve(PluginPackage.EntityName, _selectedPlugin.Package.Id, new ColumnSet(true));
+
+                lblPackage.Visible = true;
+                cdsTxtPackageName.Visible = true;
+                cdsTxtPackageName.Entity = package;
+
+
+                _selectedPackage = new PluginPackageProxy(package);
+                if (_selectedPackage?.ManagedIdentity != null)
+                {
+                    var managedIdentity = Service.Retrieve(ManagedIdentity.EntityName, _selectedPackage.ManagedIdentity.Id, new ColumnSet(true));
+                    _selectedManagedIdentity = new ManagedIdentityProxy(managedIdentity);
+                    
+                }
+                else 
+                {
+                    _selectedManagedIdentity = null;
+                }
+            }
+            else if (_selectedPlugin?.ManagedIdentity != null)
+            {
+                _selectedPackage = null;
+                lblPackage.Visible = false;
+                cdsTxtPackageName.Visible = false;
+                cdsTxtPackageName.Entity = null;
+
+                var managedIdentity = Service.Retrieve(ManagedIdentity.EntityName, _selectedPlugin.ManagedIdentity.Id, new ColumnSet(true));
+                _selectedManagedIdentity = new ManagedIdentityProxy(managedIdentity);
             }
             else 
             {
+                _selectedPackage = null;
+                lblPackage.Visible = false;
+                cdsTxtPackageName.Visible = false;
+                cdsTxtPackageName.Entity = null;
+
                 _selectedManagedIdentity = null;
-                cdsTxtIdentityName.Entity = null;
-                cdsTxtIdentityApplicationId.Entity = null;
-                cdsTxtIdentityTenantId.Entity = null;
-                cdsTxtIdentityCredentialSource.Entity = null;
-                cdsTxtIdentitySubjectScope.Entity = null;
-
-                cdsTxtIdentityIsManaged.Entity = null;
-
-                btnEditIdentity.Visible = false;
-                btnDelete.Visible = false;
-
-                
             }
+
+            // Unlink only works on Package not on PLugin assembly. Weird Bug. I only show the button on Package mode.
+            btnUnLink.Visible = _selectedPackage != null && _selectedManagedIdentity != null;
+
+            cdsTxtIdentityName.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
+            cdsTxtIdentityApplicationId.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
+            cdsTxtIdentityTenantId.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
+            cdsTxtIdentityCredentialSource.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
+            cdsTxtIdentitySubjectScope.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
+
+            cdsTxtIdentityIsManaged.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
+
+            // delete only visible if unmanaged
+            btnEditIdentity.Visible = !_selectedManagedIdentity?.IsManaged ?? false;
+            btnDelete.Visible = !_selectedManagedIdentity?.IsManaged ?? false;
+
+
             lblCertificate.Visible = _selectedPlugin != null && _selectedManagedIdentity == null;
 
             cdsTxtPluginName.Entity = _selectedPlugin?.PluginAssemblyRow;
@@ -312,7 +341,7 @@ namespace Driv.XTB.PluginIdentityManager
            
 
 
-            imageManagedIdentity.Enabled = _selectedPlugin?.ManagedIdentity != null;
+            imageManagedIdentity.Enabled = _selectedManagedIdentity  != null;
             imagePlugin.Enabled = _selectedPlugin != null;
 
             
@@ -396,7 +425,7 @@ namespace Driv.XTB.PluginIdentityManager
 
         private void CreateManagedIdentityDialog()
         {
-            var inputdlg = new NewManagedIdentityForm(Service, _selectedPlugin, _selectedSolution, _globalsettings, ConnectionDetail);
+            var inputdlg = new NewManagedIdentityForm(Service, _selectedPlugin, _selectedPackage, _selectedSolution, _globalsettings, ConnectionDetail);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -415,7 +444,7 @@ namespace Driv.XTB.PluginIdentityManager
 
         private void ExistingManagedIdentityDialog()
         {
-            var inputdlg = new ExistingManagedIdentityForm(Service, _selectedPlugin, _selectedSolution, _globalsettings, ConnectionDetail);
+            var inputdlg = new ExistingManagedIdentityForm(Service, _selectedPlugin,_selectedPackage, _selectedSolution, _globalsettings, ConnectionDetail);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -501,8 +530,18 @@ namespace Driv.XTB.PluginIdentityManager
                 // delete the selected item
                 if (_selectedManagedIdentity != null)
                 {
-                    Service.Delete(ManagedIdentity.EntityName, _selectedManagedIdentity.ManagedIdentityRow.Id);
-                    ExecuteMethod(LoadPluginAssemblies);
+                    // TODO TRY CATCH
+                    try
+                    {
+                        Service.Delete(ManagedIdentity.EntityName, _selectedManagedIdentity.ManagedIdentityRow.Id);
+                        ExecuteMethod(LoadPluginAssemblies);
+                    }
+                    catch (Exception ex)
+                    {
+                       
+                        MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+
                 }
             }
         }
@@ -537,5 +576,55 @@ namespace Driv.XTB.PluginIdentityManager
             }
         }
 
+        private void btnUnLink_Click(object sender, EventArgs e)
+        {
+            var message = _selectedPackage != null ? 
+                $"Are you sure to unlink the plugin package '{_selectedPackage.Name}' from the managed identity record ?" : 
+                $"Are you sure to unlink the plugin assembly '{_selectedPlugin.Name}' from the managed identity record ?";
+
+
+            var confirmResult = MessageBox.Show(message,
+                                     "Confirm Unlink!",
+                                     MessageBoxButtons.YesNo,
+                                     MessageBoxIcon.Warning);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+
+                try
+                {
+                    if (_selectedPackage != null)
+                    {
+
+                        var updatedPackage = new Entity(PluginPackage.EntityName)
+                        {
+                            Id = _selectedPackage.PluginPackageRow.Id
+                        };
+                        updatedPackage[PluginPackage.ManagedIdentityId] = null;
+                        Service.Update(updatedPackage);
+
+                    }
+                    else
+                    {
+                        var updatedPlugin = new Entity(Plug_inAssembly.EntityName)
+                        {
+                            Id = _selectedPlugin.PluginAssemblyRow.Id
+                        };
+                        updatedPlugin[Plug_inAssembly.ManagedIdentityId] = null;
+                        Service.Update(updatedPlugin);
+                    }
+
+                    ExecuteMethod(LoadPluginAssemblies);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+
+                
+            }
+
+        }
     }
 }

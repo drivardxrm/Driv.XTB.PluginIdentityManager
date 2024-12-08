@@ -251,6 +251,7 @@
       <DependentUpon>SwitchControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\ManagedIdentity.cs" />
+    <Compile Include="Entities\PluginPackage.cs" />
     <Compile Include="Entities\Plug_inAssembly.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\Solution.cs" />
@@ -296,6 +297,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Proxy\PluginPackageProxy.cs" />
     <Compile Include="Proxy\PluginAssemblyProxy.cs" />
     <Compile Include="Proxy\ManagedIdentityProxy.cs" />
     <Compile Include="Proxy\SolutionProxy.cs" />

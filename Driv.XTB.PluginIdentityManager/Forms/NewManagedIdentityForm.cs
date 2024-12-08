@@ -22,6 +22,7 @@ namespace Driv.XTB.PluginIdentityManager.Forms
         private ConnectionDetail _connection;
         private IOrganizationService _service;
         private PluginAssemblyProxy _plugin;
+        private PluginPackageProxy _package;
         private SolutionProxy _selectedSolution;
         private Settings _settings;
 
@@ -29,17 +30,20 @@ namespace Driv.XTB.PluginIdentityManager.Forms
 
         #region Public Constructors
 
-        public NewManagedIdentityForm(IOrganizationService service,PluginAssemblyProxy plugin, SolutionProxy solution, Settings settings, ConnectionDetail connection)
+        public NewManagedIdentityForm(IOrganizationService service,PluginAssemblyProxy plugin, PluginPackageProxy package, SolutionProxy solution, Settings settings, ConnectionDetail connection)
         {
             InitializeComponent();
             _service = service;
             _settings = settings;
             _plugin = plugin;
+            _package = package;
             _connection = connection;
 
             txtName.Text = $"{plugin.Name} Identity";
 
-            lblPluginName.Text = $"Assembly : {plugin.Name}";
+
+
+            lblPluginName.Text = _package == null ? $"Assembly : {plugin.Name}" : $"Package : {package.Name}";
 
             cboCredentialSource.DataSource = Enum.GetValues(typeof(ManagedIdentity.CredentialSource_OptionSet));
             cboCredentialSource.SelectedIndex = (int)ManagedIdentity.CredentialSource_OptionSet.IsManaged;
@@ -94,14 +98,30 @@ namespace Driv.XTB.PluginIdentityManager.Forms
 
                 NewManagedIdentityId = createResponse.id;
 
-                // Link to PLugin Assembly
-                var updatedPlugin = new Entity(Plug_inAssembly.EntityName)
+                if (_plugin.Package != null)
                 {
-                    Id = _plugin.PluginAssemblyRow.Id
-                };
-                updatedPlugin[Plug_inAssembly.ManagedIdentityId] = new EntityReference(ManagedIdentity.EntityName, NewManagedIdentityId);
+                    // Link to Plugin Package
+                    var pluginPackage = new Entity(PluginPackage.EntityName)
+                    {
+                        Id = _plugin.Package.Id
+                    };
+                    pluginPackage[PluginPackage.ManagedIdentityId] = new EntityReference(ManagedIdentity.EntityName, NewManagedIdentityId);
+                    _service.Update(pluginPackage);
 
-                _service.Update(updatedPlugin);
+                }
+                else 
+                {
+                    // Link to PLugin Assembly
+                    var updatedPlugin = new Entity(Plug_inAssembly.EntityName)
+                    {
+                        Id = _plugin.PluginAssemblyRow.Id
+                    };
+                    updatedPlugin[Plug_inAssembly.ManagedIdentityId] = new EntityReference(ManagedIdentity.EntityName, NewManagedIdentityId);
+
+                    _service.Update(updatedPlugin);
+
+                }
+                
 
 
                 Cursor = Cursors.Default;

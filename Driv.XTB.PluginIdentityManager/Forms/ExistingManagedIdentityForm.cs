@@ -23,6 +23,7 @@ namespace Driv.XTB.PluginIdentityManager.Forms
         private ConnectionDetail _connection;
         private IOrganizationService _service;
         private PluginAssemblyProxy _plugin;
+        private PluginPackageProxy _package;
         private SolutionProxy _selectedSolution;
         private Settings _settings;
 
@@ -30,13 +31,14 @@ namespace Driv.XTB.PluginIdentityManager.Forms
 
         #region Public Constructors
 
-        public ExistingManagedIdentityForm(IOrganizationService service,PluginAssemblyProxy plugin, SolutionProxy solution, Settings settings, ConnectionDetail connection)
+        public ExistingManagedIdentityForm(IOrganizationService service,PluginAssemblyProxy plugin,PluginPackageProxy package, SolutionProxy solution, Settings settings, ConnectionDetail connection)
         {
             InitializeComponent();
             _service = service;
             _settings = settings;
             _plugin = plugin;
             _connection = connection;
+            _package = package;
 
             cdsGridManagedIdentity.OrganizationService = service;
             cdsTxtIdentityApplicationId.OrganizationService = service;
@@ -44,7 +46,10 @@ namespace Driv.XTB.PluginIdentityManager.Forms
             cdsTxtIdentityName.OrganizationService = service;
             cdsTxtIdentitySubjectScope.OrganizationService = service;
 
-            lblPluginName.Text = $"Assembly : {plugin.Name}";
+
+            lblPluginName.Text = _package == null ? $"Assembly : {plugin.Name}" : $"Package : {_package.Name}";
+
+            btnOk.Text = _package == null ? "Link to Plugin" : "Link to Package";
 
             LoadManagedIdentities();
 
@@ -75,16 +80,28 @@ namespace Driv.XTB.PluginIdentityManager.Forms
                     throw new ArgumentException("Please select a Managed Identity");
                 }
 
-
-                // Link to PLugin Assembly
-                var updatedPlugin = new Entity(Plug_inAssembly.EntityName)
+                if (_plugin.Package != null)
                 {
-                    Id = _plugin.PluginAssemblyRow.Id
-                };
-                updatedPlugin[Plug_inAssembly.ManagedIdentityId] = new EntityReference(ManagedIdentity.EntityName, SelectedManagedIdentity);
+                    // Link to PLugin Package
+                    var updatedPackage = new Entity(PluginPackage.EntityName)
+                    {
+                        Id = _plugin.Package.Id
+                    };
+                    updatedPackage[PluginPackage.ManagedIdentityId] = new EntityReference(ManagedIdentity.EntityName, SelectedManagedIdentity);
 
-                _service.Update(updatedPlugin);
+                    _service.Update(updatedPackage);
+                }
+                else 
+                {
+                    // Link to PLugin Assembly
+                    var updatedPlugin = new Entity(Plug_inAssembly.EntityName)
+                    {
+                        Id = _plugin.PluginAssemblyRow.Id
+                    };
+                    updatedPlugin[Plug_inAssembly.ManagedIdentityId] = new EntityReference(ManagedIdentity.EntityName, SelectedManagedIdentity);
 
+                    _service.Update(updatedPlugin);
+                }
 
                 Cursor = Cursors.Default;
             }

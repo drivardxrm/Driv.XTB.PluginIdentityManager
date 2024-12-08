@@ -74,16 +74,16 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(517, 271);
+            this.panel2.Size = new System.Drawing.Size(456, 299);
             this.panel2.TabIndex = 5;
             // 
             // lblPluginName
             // 
             this.lblPluginName.AutoSize = true;
-            this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPluginName.Location = new System.Drawing.Point(285, 240);
+            this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPluginName.Location = new System.Drawing.Point(12, 232);
             this.lblPluginName.Name = "lblPluginName";
-            this.lblPluginName.Size = new System.Drawing.Size(120, 13);
+            this.lblPluginName.Size = new System.Drawing.Size(142, 13);
             this.lblPluginName.TabIndex = 115;
             this.lblPluginName.Text = "Assembly : Plugin Name";
             // 
@@ -127,7 +127,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(20, 200);
+            this.label12.Location = new System.Drawing.Point(27, 179);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(182, 13);
             this.label12.TabIndex = 108;
@@ -139,7 +139,7 @@
             // 
             this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
             this.cdsCboSolutions.FormattingEnabled = true;
-            this.cdsCboSolutions.Location = new System.Drawing.Point(23, 216);
+            this.cdsCboSolutions.Location = new System.Drawing.Point(28, 195);
             this.cdsCboSolutions.Name = "cdsCboSolutions";
             this.cdsCboSolutions.OrganizationService = null;
             this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
@@ -163,7 +163,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(420, 205);
+            this.btnCancel.Location = new System.Drawing.Point(173, 252);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 12;
@@ -178,7 +178,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(277, 205);
+            this.btnOk.Location = new System.Drawing.Point(30, 252);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(137, 32);
             this.btnOk.TabIndex = 11;
@@ -271,7 +271,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(517, 259);
+            this.ClientSize = new System.Drawing.Size(456, 311);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

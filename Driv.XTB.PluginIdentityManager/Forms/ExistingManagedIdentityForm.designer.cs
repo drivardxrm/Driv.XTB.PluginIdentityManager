@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExistingManagedIdentityForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblPluginName = new System.Windows.Forms.Label();
             this.Show = new System.Windows.Forms.Label();
             this.chkUnmanaged = new System.Windows.Forms.CheckBox();
@@ -53,7 +54,6 @@
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.cboType = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.imageManagedIdentity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cdsGridManagedIdentity)).BeginInit();
@@ -77,13 +77,23 @@
             this.panel2.Size = new System.Drawing.Size(949, 455);
             this.panel2.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(293, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 13);
+            this.label1.TabIndex = 121;
+            this.label1.Text = "Note : Filter on CredentialSource = 2 (IsManaged)";
+            // 
             // lblPluginName
             // 
             this.lblPluginName.AutoSize = true;
-            this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPluginName.Location = new System.Drawing.Point(679, 306);
+            this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPluginName.Location = new System.Drawing.Point(560, 255);
             this.lblPluginName.Name = "lblPluginName";
-            this.lblPluginName.Size = new System.Drawing.Size(120, 13);
+            this.lblPluginName.Size = new System.Drawing.Size(142, 13);
             this.lblPluginName.TabIndex = 120;
             this.lblPluginName.Text = "Assembly : Plugin Name";
             // 
@@ -293,7 +303,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(825, 271);
+            this.btnCancel.Location = new System.Drawing.Point(706, 280);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 12;
@@ -308,7 +318,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(682, 271);
+            this.btnOk.Location = new System.Drawing.Point(563, 280);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(137, 32);
             this.btnOk.TabIndex = 11;
@@ -340,16 +350,6 @@
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(211, 21);
             this.cboType.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(293, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 13);
-            this.label1.TabIndex = 121;
-            this.label1.Text = "Note : Filter on CredentialSource = 2 (IsManaged)";
             // 
             // ExistingManagedIdentityForm
             // 

@@ -32,6 +32,10 @@ namespace Driv.XTB.PluginIdentityManager.Proxy
         public bool IsManaged => PluginAssemblyRow.Attributes.Contains(Plug_inAssembly.State) &&
                             (bool)PluginAssemblyRow[Plug_inAssembly.State];
 
+        public EntityReference Package => PluginAssemblyRow.Attributes.Contains(Plug_inAssembly.Package) ?
+                                            (EntityReference)PluginAssemblyRow[Plug_inAssembly.Package] : 
+                                            null;
+
 
 
 

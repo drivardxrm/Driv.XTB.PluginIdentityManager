@@ -45,6 +45,9 @@
             this.rbSolution = new System.Windows.Forms.RadioButton();
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.imagePlugin = new Driv.XTB.PluginIdentityManager.ImageGroupBox();
+            this.btnUnLink = new System.Windows.Forms.Button();
+            this.cdsTxtPackageName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.lblPackage = new System.Windows.Forms.Label();
             this.lblCertificate = new System.Windows.Forms.TextBox();
             this.Version = new System.Windows.Forms.Label();
             this.cdsTxtPluginVersion = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -132,7 +135,7 @@
             this.grpFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpFilter.Location = new System.Drawing.Point(13, 39);
             this.grpFilter.Name = "grpFilter";
-            this.grpFilter.Size = new System.Drawing.Size(756, 80);
+            this.grpFilter.Size = new System.Drawing.Size(857, 80);
             this.grpFilter.TabIndex = 22;
             this.grpFilter.TabStop = false;
             this.grpFilter.Text = "Select Plugin Assembly";
@@ -243,6 +246,9 @@
             // 
             // imagePlugin
             // 
+            this.imagePlugin.Controls.Add(this.btnUnLink);
+            this.imagePlugin.Controls.Add(this.cdsTxtPackageName);
+            this.imagePlugin.Controls.Add(this.lblPackage);
             this.imagePlugin.Controls.Add(this.lblCertificate);
             this.imagePlugin.Controls.Add(this.Version);
             this.imagePlugin.Controls.Add(this.cdsTxtPluginVersion);
@@ -258,16 +264,55 @@
             this.imagePlugin.Icon = ((System.Drawing.Icon)(resources.GetObject("imagePlugin.Icon")));
             this.imagePlugin.Location = new System.Drawing.Point(13, 125);
             this.imagePlugin.Name = "imagePlugin";
-            this.imagePlugin.Size = new System.Drawing.Size(789, 309);
+            this.imagePlugin.Size = new System.Drawing.Size(857, 309);
             this.imagePlugin.TabIndex = 23;
             this.imagePlugin.TabStop = false;
             this.imagePlugin.Text = "Plugin Assembly";
+            // 
+            // btnUnLink
+            // 
+            this.btnUnLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnLink.Image = global::Driv.XTB.PluginIdentityManager.Properties.Resources.icons8_delete_link_25;
+            this.btnUnLink.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUnLink.Location = new System.Drawing.Point(715, 23);
+            this.btnUnLink.Name = "btnUnLink";
+            this.btnUnLink.Size = new System.Drawing.Size(101, 33);
+            this.btnUnLink.TabIndex = 99;
+            this.btnUnLink.Text = "Unlink";
+            this.btnUnLink.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUnLink.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUnLink.UseVisualStyleBackColor = true;
+            this.btnUnLink.Visible = false;
+            this.btnUnLink.Click += new System.EventHandler(this.btnUnLink_Click);
+            // 
+            // cdsTxtPackageName
+            // 
+            this.cdsTxtPackageName.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsTxtPackageName.DisplayFormat = "name";
+            this.cdsTxtPackageName.Entity = null;
+            this.cdsTxtPackageName.EntityReference = null;
+            this.cdsTxtPackageName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsTxtPackageName.Location = new System.Drawing.Point(84, 122);
+            this.cdsTxtPackageName.LogicalName = "pluginpackage";
+            this.cdsTxtPackageName.Name = "cdsTxtPackageName";
+            this.cdsTxtPackageName.OrganizationService = null;
+            this.cdsTxtPackageName.Size = new System.Drawing.Size(250, 20);
+            this.cdsTxtPackageName.TabIndex = 97;
+            // 
+            // lblPackage
+            // 
+            this.lblPackage.AutoSize = true;
+            this.lblPackage.Location = new System.Drawing.Point(18, 125);
+            this.lblPackage.Name = "lblPackage";
+            this.lblPackage.Size = new System.Drawing.Size(50, 13);
+            this.lblPackage.TabIndex = 98;
+            this.lblPackage.Text = "Package";
             // 
             // lblCertificate
             // 
             this.lblCertificate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblCertificate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCertificate.Location = new System.Drawing.Point(21, 129);
+            this.lblCertificate.Location = new System.Drawing.Point(21, 155);
             this.lblCertificate.Multiline = true;
             this.lblCertificate.Name = "lblCertificate";
             this.lblCertificate.ReadOnly = true;
@@ -635,5 +680,8 @@
         private System.Windows.Forms.Button btnEditIdentity;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox lblCertificate;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtPackageName;
+        private System.Windows.Forms.Label lblPackage;
+        private System.Windows.Forms.Button btnUnLink;
     }
 }
