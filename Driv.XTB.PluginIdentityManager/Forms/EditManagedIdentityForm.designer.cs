@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditManagedIdentityForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenantId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,13 +48,16 @@
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.cboType = new System.Windows.Forms.ComboBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtVersion = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtVersion);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtTenantId);
@@ -73,6 +77,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(517, 271);
             this.panel2.TabIndex = 5;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
+            this.pictureBox5.Location = new System.Drawing.Point(339, 119);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox5.TabIndex = 115;
+            this.pictureBox5.TabStop = false;
             // 
             // label2
             // 
@@ -127,7 +141,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(421, 184);
+            this.btnCancel.Location = new System.Drawing.Point(427, 214);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 12;
@@ -142,7 +156,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(324, 184);
+            this.btnOk.Location = new System.Drawing.Point(330, 214);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(91, 32);
             this.btnOk.TabIndex = 11;
@@ -230,15 +244,23 @@
             this.cboType.Size = new System.Drawing.Size(211, 21);
             this.cboType.TabIndex = 6;
             // 
-            // pictureBox5
+            // label3
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(339, 119);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox5.TabIndex = 115;
-            this.pictureBox5.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 176);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 119;
+            this.label3.Text = "Version";
+            this.ttInfo.SetToolTip(this.label3, "Version indicating the format of the FIC subject.");
+            // 
+            // txtVersion
+            // 
+            this.txtVersion.Location = new System.Drawing.Point(123, 172);
+            this.txtVersion.Name = "txtVersion";
+            this.txtVersion.Size = new System.Drawing.Size(128, 20);
+            this.txtVersion.TabIndex = 120;
+            this.txtVersion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVersion_KeyPress);
             // 
             // EditManagedIdentityForm
             // 
@@ -246,7 +268,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(517, 230);
+            this.ClientSize = new System.Drawing.Size(517, 258);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -281,5 +303,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboSubjectScope;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtVersion;
     }
 }

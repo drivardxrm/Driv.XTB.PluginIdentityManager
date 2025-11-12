@@ -41,6 +41,7 @@ namespace Driv.XTB.PluginIdentityManager.Forms
             txtName.Text = _identity.Name;
             txtApplicationId.Text = _identity.ManagedIdentityRow[ManagedIdentity.ApplicationId].ToString();
             txtTenantId.Text = _identity.ManagedIdentityRow[ManagedIdentity.TenantId].ToString();
+            txtVersion.Text = _identity.Version?.ToString() ?? string.Empty;
 
 
             cboCredentialSource.DataSource = Enum.GetValues(typeof(ManagedIdentity.CredentialSource_OptionSet));
@@ -119,8 +120,32 @@ namespace Driv.XTB.PluginIdentityManager.Forms
                 managedIdentity[ManagedIdentity.TenantId] = Guid.Parse(txtTenantId.Text);
             }
 
+            // parse safely
+            int parsedVersion;
+            int? version = int.TryParse(txtVersion.Text, out parsedVersion) ? parsedVersion : (int?)null;
+            if (version != _identity.Version)
+            {
+                managedIdentity[ManagedIdentity.Version] = version;
+            }
+
+
+
             return managedIdentity;
         }
 
+
+        private void txtVersion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

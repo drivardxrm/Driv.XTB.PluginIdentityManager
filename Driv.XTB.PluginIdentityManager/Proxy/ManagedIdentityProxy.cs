@@ -35,7 +35,9 @@ namespace Driv.XTB.PluginIdentityManager.Proxy
                                                     Name;
 
 
-
+        public int? Version => ManagedIdentityRow.Attributes.Contains(ManagedIdentity.Version) ?
+                                                    (int?)ManagedIdentityRow[ManagedIdentity.Version] :
+                                                    null;
 
         public ManagedIdentity.CredentialSource_OptionSet CredentialSource => (ManagedIdentity.CredentialSource_OptionSet)(ManagedIdentityRow[ManagedIdentity.CredentialSource] as OptionSetValue).Value;
 

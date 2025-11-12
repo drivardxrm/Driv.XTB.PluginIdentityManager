@@ -54,6 +54,8 @@
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.cboType = new System.Windows.Forms.ComboBox();
+            this.cdsTxtIdentityVersion = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.imageManagedIdentity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cdsGridManagedIdentity)).BeginInit();
@@ -91,7 +93,7 @@
             // 
             this.lblPluginName.AutoSize = true;
             this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPluginName.Location = new System.Drawing.Point(560, 255);
+            this.lblPluginName.Location = new System.Drawing.Point(560, 276);
             this.lblPluginName.Name = "lblPluginName";
             this.lblPluginName.Size = new System.Drawing.Size(142, 13);
             this.lblPluginName.TabIndex = 120;
@@ -135,6 +137,8 @@
             // 
             // imageManagedIdentity
             // 
+            this.imageManagedIdentity.Controls.Add(this.cdsTxtIdentityVersion);
+            this.imageManagedIdentity.Controls.Add(this.label4);
             this.imageManagedIdentity.Controls.Add(this.cdsTxtIdentitySubjectScope);
             this.imageManagedIdentity.Controls.Add(this.cdsTxtIdentityCredentialSource);
             this.imageManagedIdentity.Controls.Add(this.cdsTxtIdentityTenantId);
@@ -148,7 +152,7 @@
             this.imageManagedIdentity.Icon = ((System.Drawing.Icon)(resources.GetObject("imageManagedIdentity.Icon")));
             this.imageManagedIdentity.Location = new System.Drawing.Point(563, 59);
             this.imageManagedIdentity.Name = "imageManagedIdentity";
-            this.imageManagedIdentity.Size = new System.Drawing.Size(344, 187);
+            this.imageManagedIdentity.Size = new System.Drawing.Size(344, 205);
             this.imageManagedIdentity.TabIndex = 116;
             this.imageManagedIdentity.TabStop = false;
             this.imageManagedIdentity.Text = "Managed Identity";
@@ -303,7 +307,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(706, 280);
+            this.btnCancel.Location = new System.Drawing.Point(706, 301);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 12;
@@ -318,7 +322,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(563, 280);
+            this.btnOk.Location = new System.Drawing.Point(563, 301);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(137, 32);
             this.btnOk.TabIndex = 11;
@@ -350,6 +354,29 @@
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(211, 21);
             this.cboType.TabIndex = 6;
+            // 
+            // cdsTxtIdentityVersion
+            // 
+            this.cdsTxtIdentityVersion.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsTxtIdentityVersion.DisplayFormat = "version";
+            this.cdsTxtIdentityVersion.Entity = null;
+            this.cdsTxtIdentityVersion.EntityReference = null;
+            this.cdsTxtIdentityVersion.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsTxtIdentityVersion.Location = new System.Drawing.Point(119, 175);
+            this.cdsTxtIdentityVersion.LogicalName = "managedidentity";
+            this.cdsTxtIdentityVersion.Name = "cdsTxtIdentityVersion";
+            this.cdsTxtIdentityVersion.OrganizationService = null;
+            this.cdsTxtIdentityVersion.Size = new System.Drawing.Size(113, 20);
+            this.cdsTxtIdentityVersion.TabIndex = 128;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 178);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 127;
+            this.label4.Text = "Version";
             // 
             // ExistingManagedIdentityForm
             // 
@@ -400,5 +427,7 @@
         private System.Windows.Forms.CheckBox chkManaged;
         private System.Windows.Forms.Label lblPluginName;
         private System.Windows.Forms.Label label1;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtIdentityVersion;
+        private System.Windows.Forms.Label label4;
     }
 }

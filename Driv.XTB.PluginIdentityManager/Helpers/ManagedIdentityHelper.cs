@@ -35,6 +35,7 @@ namespace Driv.XTB.PluginIdentityManager.Helpers
                 <attribute name='statuscode' />
                 <attribute name='subjectscope' />
                 <attribute name='tenantid' />
+                <attribute name='version' />
                 <filter>
                   <condition attribute='credentialsource' operator='eq' value='2' />
                 </filter>

@@ -107,6 +107,7 @@ namespace Driv.XTB.PluginIdentityManager
             cdsTxtIdentityApplicationId.OrganizationService = Service;
             cdsTxtIdentityTenantId.OrganizationService = Service;
             cdsTxtIdentityIsManaged.OrganizationService = Service;
+            cdsTxtIdentityVersion.OrganizationService = Service;
 
         }
 
@@ -323,6 +324,7 @@ namespace Driv.XTB.PluginIdentityManager
             cdsTxtIdentityTenantId.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
             cdsTxtIdentityCredentialSource.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
             cdsTxtIdentitySubjectScope.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
+            cdsTxtIdentityVersion.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
 
             cdsTxtIdentityIsManaged.Entity = _selectedManagedIdentity?.ManagedIdentityRow;
 

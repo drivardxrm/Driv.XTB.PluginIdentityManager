@@ -72,6 +72,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnNewIdentity = new System.Windows.Forms.Button();
             this.cdsTxtPluginName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.cdsTxtIdentityVersion = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.toolStripMenu.SuspendLayout();
             this.grpFilter.SuspendLayout();
             this.imagePlugin.SuspendLayout();
@@ -363,6 +365,8 @@
             // 
             // imageManagedIdentity
             // 
+            this.imageManagedIdentity.Controls.Add(this.cdsTxtIdentityVersion);
+            this.imageManagedIdentity.Controls.Add(this.label7);
             this.imageManagedIdentity.Controls.Add(this.btnDelete);
             this.imageManagedIdentity.Controls.Add(this.btnEditIdentity);
             this.imageManagedIdentity.Controls.Add(this.cdsTxtIdentityIsManaged);
@@ -424,7 +428,7 @@
             this.cdsTxtIdentityIsManaged.Entity = null;
             this.cdsTxtIdentityIsManaged.EntityReference = null;
             this.cdsTxtIdentityIsManaged.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtIdentityIsManaged.Location = new System.Drawing.Point(108, 175);
+            this.cdsTxtIdentityIsManaged.Location = new System.Drawing.Point(108, 195);
             this.cdsTxtIdentityIsManaged.LogicalName = "managedidentity";
             this.cdsTxtIdentityIsManaged.Name = "cdsTxtIdentityIsManaged";
             this.cdsTxtIdentityIsManaged.OrganizationService = null;
@@ -434,7 +438,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 178);
+            this.label6.Location = new System.Drawing.Point(13, 198);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 13);
             this.label6.TabIndex = 95;
@@ -616,6 +620,29 @@
             this.cdsTxtPluginName.Size = new System.Drawing.Size(274, 20);
             this.cdsTxtPluginName.TabIndex = 11;
             // 
+            // cdsTxtIdentityVersion
+            // 
+            this.cdsTxtIdentityVersion.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsTxtIdentityVersion.DisplayFormat = "version";
+            this.cdsTxtIdentityVersion.Entity = null;
+            this.cdsTxtIdentityVersion.EntityReference = null;
+            this.cdsTxtIdentityVersion.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsTxtIdentityVersion.Location = new System.Drawing.Point(108, 172);
+            this.cdsTxtIdentityVersion.LogicalName = "managedidentity";
+            this.cdsTxtIdentityVersion.Name = "cdsTxtIdentityVersion";
+            this.cdsTxtIdentityVersion.OrganizationService = null;
+            this.cdsTxtIdentityVersion.Size = new System.Drawing.Size(68, 20);
+            this.cdsTxtIdentityVersion.TabIndex = 128;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 175);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 13);
+            this.label7.TabIndex = 129;
+            this.label7.Text = "Version";
+            // 
             // PluginIdentityManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,5 +710,7 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtPackageName;
         private System.Windows.Forms.Label lblPackage;
         private System.Windows.Forms.Button btnUnLink;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtIdentityVersion;
+        private System.Windows.Forms.Label label7;
     }
 }

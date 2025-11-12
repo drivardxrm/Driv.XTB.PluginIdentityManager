@@ -68,6 +68,8 @@ namespace Driv.XTB.PluginIdentityManager.Entities
         public const string TimeZoneRuleVersionNumber = "timezoneruleversionnumber";
         /// <summary>Type: Integer, RequiredLevel: None, MinValue: -1, MaxValue: 2147483647</summary>
         public const string UTCConversionTimeZoneCode = "utcconversiontimezonecode";
+        /// <summary>Type: Integer, RequiredLevel: None, MinValue: -1, MaxValue: 2147483647</summary>
+        public const string Version = "version";
         /// <summary>Type: BigInt, RequiredLevel: None, MinValue: -9223372036854775808, MaxValue: 9223372036854775807</summary>
         public const string VersionNumber = "versionnumber";
 

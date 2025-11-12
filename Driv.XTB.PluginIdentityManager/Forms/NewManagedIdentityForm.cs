@@ -51,6 +51,8 @@ namespace Driv.XTB.PluginIdentityManager.Forms
             cboSubjectScope.DataSource = Enum.GetValues(typeof(ManagedIdentity.SubjectScope_OptionSet));
             cboSubjectScope.SelectedIndex = (int)ManagedIdentity.SubjectScope_OptionSet.EnvironmentScope;
 
+            txtVersion.Text = "1"; //https://learn.microsoft.com/en-us/power-platform/admin/set-up-managed-identity#configure-federated-identity-credentialshttps://learn.microsoft.com/en-us/power-platform/admin/set-up-managed-identity#configure-federated-identity-credentials
+
 
             cdsCboSolutions.OrganizationService = service;
 
@@ -140,12 +142,17 @@ namespace Driv.XTB.PluginIdentityManager.Forms
 
         private Entity ManagedIdentityToCreate()
         {
+            // parse safely
+            int parsedVersion;
+            int? version = int.TryParse(txtVersion.Text, out parsedVersion) ? parsedVersion : (int?)null;
+
             var managedIdentity = new Entity(ManagedIdentity.EntityName);
             managedIdentity[ManagedIdentity.PrimaryName] = txtName.Text;
             managedIdentity[ManagedIdentity.CredentialSource] = new OptionSetValue(cboCredentialSource.SelectedIndex);
             managedIdentity[ManagedIdentity.SubjectScope] = new OptionSetValue(cboSubjectScope.SelectedIndex);
             managedIdentity[ManagedIdentity.TenantId] = Guid.Parse(txtTenantId.Text);
             managedIdentity[ManagedIdentity.ApplicationId] = Guid.Parse(txtApplicationId.Text);
+            managedIdentity[ManagedIdentity.Version] = version;
 
 
             return managedIdentity;
@@ -168,6 +175,19 @@ namespace Driv.XTB.PluginIdentityManager.Forms
             }
         }
 
-       
+
+        private void txtVersion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

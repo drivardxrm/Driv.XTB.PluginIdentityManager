@@ -50,11 +50,15 @@
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.cboType = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtVersion = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtVersion);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.lblPluginName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtTenantId);
@@ -74,14 +78,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(456, 299);
+            this.panel2.Size = new System.Drawing.Size(456, 313);
             this.panel2.TabIndex = 5;
             // 
             // lblPluginName
             // 
             this.lblPluginName.AutoSize = true;
             this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPluginName.Location = new System.Drawing.Point(12, 232);
+            this.lblPluginName.Location = new System.Drawing.Point(12, 249);
             this.lblPluginName.Name = "lblPluginName";
             this.lblPluginName.Size = new System.Drawing.Size(142, 13);
             this.lblPluginName.TabIndex = 115;
@@ -127,7 +131,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(27, 179);
+            this.label12.Location = new System.Drawing.Point(27, 196);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(182, 13);
             this.label12.TabIndex = 108;
@@ -139,7 +143,7 @@
             // 
             this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
             this.cdsCboSolutions.FormattingEnabled = true;
-            this.cdsCboSolutions.Location = new System.Drawing.Point(28, 195);
+            this.cdsCboSolutions.Location = new System.Drawing.Point(28, 212);
             this.cdsCboSolutions.Name = "cdsCboSolutions";
             this.cdsCboSolutions.OrganizationService = null;
             this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
@@ -163,7 +167,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(173, 252);
+            this.btnCancel.Location = new System.Drawing.Point(173, 269);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 12;
@@ -178,7 +182,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(30, 252);
+            this.btnOk.Location = new System.Drawing.Point(30, 269);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(137, 32);
             this.btnOk.TabIndex = 11;
@@ -265,13 +269,31 @@
             this.cboType.Size = new System.Drawing.Size(211, 21);
             this.cboType.TabIndex = 6;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 175);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 117;
+            this.label3.Text = "Version";
+            this.ttInfo.SetToolTip(this.label3, "Version indicating the format of the FIC subject.");
+            // 
+            // txtVersion
+            // 
+            this.txtVersion.Location = new System.Drawing.Point(123, 172);
+            this.txtVersion.Name = "txtVersion";
+            this.txtVersion.Size = new System.Drawing.Size(128, 20);
+            this.txtVersion.TabIndex = 118;
+            this.txtVersion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVersion_KeyPress);
+            // 
             // NewManagedIdentityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(456, 311);
+            this.ClientSize = new System.Drawing.Size(456, 325);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -307,5 +329,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboSubjectScope;
         private System.Windows.Forms.Label lblPluginName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtVersion;
     }
 }

@@ -45,6 +45,8 @@ namespace Driv.XTB.PluginIdentityManager.Forms
             cdsTxtIdentityTenantId.OrganizationService = service;
             cdsTxtIdentityName.OrganizationService = service;
             cdsTxtIdentitySubjectScope.OrganizationService = service;
+            cdsTxtIdentityCredentialSource.OrganizationService = service;
+            cdsTxtIdentityVersion.OrganizationService = service;
 
 
             lblPluginName.Text = _package == null ? $"Assembly : {plugin.Name}" : $"Package : {_package.Name}";
@@ -131,6 +133,7 @@ namespace Driv.XTB.PluginIdentityManager.Forms
             cdsTxtIdentityName.Entity = e.Entity;
             cdsTxtIdentitySubjectScope.Entity = e.Entity;
             cdsTxtIdentityCredentialSource.Entity = e.Entity;
+            cdsTxtIdentityVersion.Entity = e.Entity;
 
         }
 
